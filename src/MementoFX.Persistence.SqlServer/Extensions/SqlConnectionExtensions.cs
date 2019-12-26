@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 
-namespace System.Data.SqlClient
+namespace Microsoft.Data.SqlClient
 {
     public static class SqlConnectionExtensions
     {
-        public static void ExecuteNonQuery(this SqlConnection connection, string commandText, IEnumerable<SqlParameter> parameters = null)
+        public static void ExecuteNonQuery(this SqlConnection connection, string commandText, params SqlParameter[] parameters)
         {
             if (connection == null)
             {
@@ -31,7 +32,7 @@ namespace System.Data.SqlClient
             }
         }
 
-        public static IEnumerable<T> Query<T>(this SqlConnection connection, string commandText, bool useCompression, bool useSingleTable, IEnumerable<SqlParameter> parameters = null)
+        public static IEnumerable<T> Query<T>(this SqlConnection connection, string commandText, bool useCompression, bool useSingleTable, params SqlParameter[] parameters)
         {
             if (connection == null)
             {
@@ -62,7 +63,7 @@ namespace System.Data.SqlClient
             }
         }
 
-        public static IEnumerable<object> Query(this SqlConnection connection, Type type, string commandText, bool useCompression, bool useSingleTable, IEnumerable<SqlParameter> parameters = null)
+        public static IEnumerable<object> Query(this SqlConnection connection, Type type, string commandText, bool useCompression, bool useSingleTable, params SqlParameter[] parameters)
         {
             if (connection == null)
             {
