@@ -1,5 +1,5 @@
 ﻿using MementoFX.Persistence.SqlServer.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace MementoFX.Persistence.SqlServer.Helpers
 {
