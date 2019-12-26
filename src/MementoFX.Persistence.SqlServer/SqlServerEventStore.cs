@@ -1,9 +1,9 @@
 ﻿using MementoFX.Messaging;
 using MementoFX.Persistence.SqlServer.Data;
 using MementoFX.Persistence.SqlServer.Helpers;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -169,7 +169,7 @@ namespace MementoFX.Persistence.SqlServer
 
                 using (var connection = new SqlConnection(this.Settings.ConnectionString))
                 {
-                    collection = connection.Query(descriptorsGroup.Key, commandText, this.Settings.UseCompression, this.Settings.UseSingleTable, parameters);
+                    collection = connection.Query(descriptorsGroup.Key, commandText, this.Settings.UseCompression, this.Settings.UseSingleTable, parameters.ToArray());
                 }
 
                 if (collection != null)
@@ -206,7 +206,7 @@ namespace MementoFX.Persistence.SqlServer
             
             using (var connection = new SqlConnection(this.Settings.ConnectionString))
             {
-                connection.ExecuteNonQuery(commandText, parameters);
+                connection.ExecuteNonQuery(commandText, parameters.ToArray());
             }
         }
     }
