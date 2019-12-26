@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace System.Data.SqlClient
+namespace Microsoft.Data.SqlClient
 {
     internal static class SqlCommandExtensions
     {

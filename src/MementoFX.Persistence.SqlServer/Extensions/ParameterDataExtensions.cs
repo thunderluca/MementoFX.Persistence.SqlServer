@@ -1,8 +1,8 @@
 ﻿using MementoFX.Persistence.SqlServer.Helpers;
+using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Globalization;
 using System.Text;
 
